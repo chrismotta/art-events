@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React from 'react';
+import React, {FC} from 'react';
 import Home from '../pages/Home';
 import EventDetails from '../pages/EventDetails';
 
@@ -12,12 +12,14 @@ export type RootStackParamList = {
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-const MainStack = () => {
+const MainStack: FC<{showFavoritesOnly?: boolean}> = ({
+  showFavoritesOnly = false,
+}) => {
   return (
     <Stack.Navigator id="mainStack">
       <Stack.Screen
         name="EventsList"
-        component={Home}
+        children={() => <Home showFavoritesOnly={showFavoritesOnly} />}
         options={{
           headerShown: false,
         }}

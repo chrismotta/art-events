@@ -1,17 +1,22 @@
 import React, {FC, ReactNode} from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Header from '../components/Header';
 import {styles} from './styles';
+import {aqua} from '../theme/colors';
 
 const MainLayout: FC<{children: ReactNode}> = ({children}) => {
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <Header />
-      <LinearGradient colors={['#acd9d0', '#ffffff']} style={styles.gradient}>
-        {children}
-      </LinearGradient>
-    </SafeAreaView>
+    <View style={styles.mainContainer}>
+      <SafeAreaView style={styles.safeArea}>
+        <Header />
+        <LinearGradient
+          colors={[aqua.secondary, 'white']}
+          style={styles.gradient}>
+          {children}
+        </LinearGradient>
+      </SafeAreaView>
+    </View>
   );
 };
 

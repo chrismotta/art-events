@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const FAV_KEY = 'favorites';
+import {FAV_KEY} from './constants';
 
 export const resetStorage = async () => {
   try {

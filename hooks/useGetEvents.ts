@@ -1,24 +1,13 @@
 import {useEffect, useState} from 'react';
-
-const API_URL = 'https://api.artic.edu/api/v1/events';
+import {getEvents} from '../lib/fetch';
 
 const useGetEvents = () => {
   const [events, setEvents] = useState<GalleryEvent[]>([]);
 
-  const getEvents = async () => {
-    type ResponseType = {
-      data: GalleryEvent[];
-      pagination: GalleryEventPagination;
-    };
-
-    const response = await fetch(API_URL);
-    const {data}: ResponseType = await response.json();
-
-    setEvents(data);
-  };
-
   useEffect(() => {
-    getEvents();
+    getEvents().then(({data}) => {
+      setEvents(data);
+    });
   }, []);
 
   return {events};

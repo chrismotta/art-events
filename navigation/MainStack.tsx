@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import Main from '../Main';
-import EventDetails from '../EventDetails';
+import Home from '../pages/Home';
+import EventDetails from '../pages/EventDetails';
 
 export type RootStackParamList = {
   EventsList: undefined;
@@ -17,7 +17,7 @@ const MainStack = () => {
     <Stack.Navigator id="mainStack">
       <Stack.Screen
         name="EventsList"
-        component={Main}
+        component={Home}
         options={{
           headerShown: false,
         }}

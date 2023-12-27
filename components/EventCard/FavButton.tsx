@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {TouchableOpacity} from 'react-native';
-import HeartRegular from '../svg/HeartRegular';
-import HeartSolid from '../svg/HeartSolid';
+import HeartRegular from '../icons/HeartRegular';
+import HeartSolid from '../icons/HeartSolid';
 
 const FavButton: FC<{isFav?: boolean; onPress: () => void}> = ({
   isFav = false,

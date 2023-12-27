@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {FlatList} from 'react-native';
-import EventCard from './EventCard';
+import EventCard from '../EventCard/';
 import useFavorites from '../../hooks/useFavorites';
 
 const EventsList: FC<{
@@ -20,6 +20,7 @@ const EventsList: FC<{
   return (
     <FlatList
       data={currentEventsList}
+      style={{flex: 1}}
       renderItem={({item}) => (
         <EventCard
           event={item}

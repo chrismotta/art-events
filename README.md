@@ -22,3 +22,29 @@ We want to build a mobile application that allows a user to navigate the events 
 #### IMPORTANT:
 
 If you are scheduled to have a technical interview to review the application, it is very important that you have your source code, IDE, and your application ready to be run prior to the meeting.
+
+## Video Preview
+
+https://www.loom.com/share/af2b4e44fd1943e0a112c2874131b433?sid=d3f88942-0efa-4dd6-a055-1d1dbb301f2b
+
+## Instructions
+
+1. Clone the repository
+
+```bash
+git clone git@github.com:hipercubus/art-events.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Run the app
+
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

@@ -1,7 +1,8 @@
 import React, {FC, useContext} from 'react';
 import {FlatList} from 'react-native';
-import EventCard from '../EventCard/';
 import {MainContext} from '../../context/globalContext';
+import EventCard from '../EventCard/';
+import WarningText from './WarningText';
 import {styles} from './styles';
 
 const EventsList: FC<{
@@ -12,6 +13,10 @@ const EventsList: FC<{
     useContext(MainContext);
 
   const currentEventsList = showFavoritesOnly ? favoritesList : eventsList;
+
+  if (!currentEventsList.length) {
+    return <WarningText />;
+  }
 
   return (
     <FlatList

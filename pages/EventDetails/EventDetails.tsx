@@ -6,7 +6,7 @@ import RenderHTML from 'react-native-render-html';
 import FavButton from '../../components/EventCard/FavButton';
 import Tag from '../../components/Tag';
 import DetailsLayout from '../../layouts/DetailsLayout';
-import {EVENT_ERROR} from '../../lib/wording';
+import {EVENT_ERROR, TAG_WHEN, TAG_WHERE} from '../../lib/wording';
 import {RootStackParamList} from '../../navigation/MainStack';
 import {captionStyles, styles, tagsStyles} from './styles';
 import {MainContext} from '../../context/globalContext';
@@ -49,11 +49,11 @@ const EventDetails: FC<
           </View>
         </View>
         <View style={styles.details}>
-          <Tag>WHEN</Tag>
+          <Tag>{TAG_WHEN}</Tag>
           <Text style={styles.date}>{when}</Text>
         </View>
         <View style={styles.details}>
-          <Tag>WHERE</Tag>
+          <Tag>{TAG_WHERE}</Tag>
           <Text style={styles.date}>{event.location}</Text>
         </View>
         <Text style={styles.title}>{event.title}</Text>

@@ -8,6 +8,10 @@ export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
+  scrollView: {
+    flex: 1,
+    padding: 15,
+  },
   gradient: {
     flexGrow: 1,
   },

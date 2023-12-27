@@ -1,20 +1,28 @@
 import {StyleSheet} from 'react-native';
+import {blue, gray} from '../../theme/colors';
 
 export const styles = StyleSheet.create({
-  eventCard: {
-    backgroundColor: 'white',
-    padding: 15,
-    margin: 10,
-    borderRadius: 10,
-    borderColor: 'black',
-    borderStyle: 'solid',
-    borderWidth: 1,
+  info: {
+    flexGrow: 1,
+    paddingBottom: 30,
   },
   actions: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 5,
     gap: 15,
+    marginBottom: 10,
+  },
+  details: {
+    flexGrow: 1,
+    flexDirection: 'row',
+    gap: 5,
+    marginBottom: 5,
+    alignItems: 'center',
+  },
+  date: {
+    fontSize: 14,
+    color: gray.primary,
   },
   caption: {
     width: '80%',
@@ -30,7 +38,7 @@ export const styles = StyleSheet.create({
   },
   eventImage: {
     width: '100%',
-    height: 200,
+    height: 300,
   },
 });
 
@@ -41,7 +49,7 @@ export const tagsStyles = StyleSheet.create({
   },
   em: {
     fontStyle: 'italic',
-    color: '#046',
+    color: blue.primary,
   },
   h2: {
     fontSize: 16,
@@ -55,7 +63,7 @@ export const captionStyles = StyleSheet.create({
   p: {
     margin: 0,
     fontStyle: 'italic',
-    color: '#999',
+    color: gray.secondary,
     fontSize: 10,
   },
 });

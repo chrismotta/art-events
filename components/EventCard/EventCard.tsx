@@ -1,11 +1,12 @@
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {DateTime} from 'luxon';
 import React, {FC} from 'react';
 import {Button, Image, Text, View, useWindowDimensions} from 'react-native';
 import RenderHTML from 'react-native-render-html';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {VIEW_DETAILS} from '../../lib/wording';
 import {RootStackParamList} from '../../navigation/MainStack';
 import FavButton from './FavButton';
-import {VIEW_DETAILS} from '../../lib/wording';
 import {captionStyles, styles, tagsStyles} from './styles';
 
 type ScreenProp = NativeStackNavigationProp<RootStackParamList, 'EventDetails'>;
@@ -22,8 +23,11 @@ const EventCard: FC<{
     navigation.navigate('EventDetails', {event: currentEvent});
   };
 
+  const startDate = DateTime.fromISO(event.start_date).toFormat('DDDD');
+
   return (
     <View style={styles.eventCard}>
+      <Text style={styles.date}>{startDate}</Text>
       <Image source={{uri: event.image_url}} style={styles.eventImage} />
       <View style={styles.actions}>
         <FavButton isFav={isFav} onPress={() => onFavPress(event.id)} />

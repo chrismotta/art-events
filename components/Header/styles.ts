@@ -1,20 +1,21 @@
 import {StyleSheet} from 'react-native';
+import {gray} from '../../theme/colors';
 
 export const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
     padding: 15,
     alignItems: 'center',
     shadowColor: 'black',
-    borderBottomColor: '#eee',
+    borderBottomColor: gray.tertiary,
     borderBottomWidth: 1,
   },
   title: {
     fontFamily: 'times new roman',
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#666',
-    borderColor: '#666',
+    color: gray.primary,
+    borderColor: gray.primary,
     borderWidth: 1,
     padding: 10,
   },

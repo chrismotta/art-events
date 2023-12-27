@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {blue, gray} from '../../theme/colors';
 
 export const styles = StyleSheet.create({
   eventCard: {
@@ -13,6 +14,12 @@ export const styles = StyleSheet.create({
       width: -6,
       height: 6,
     },
+  },
+  date: {
+    fontSize: 14,
+    color: gray.primary,
+    textAlign: 'center',
+    paddingBottom: 10,
   },
   actions: {
     flexDirection: 'row',
@@ -45,7 +52,7 @@ export const tagsStyles = StyleSheet.create({
   },
   em: {
     fontStyle: 'italic',
-    color: '#046',
+    color: blue.primary,
   },
 });
 
@@ -53,7 +60,7 @@ export const captionStyles = StyleSheet.create({
   p: {
     margin: 0,
     fontStyle: 'italic',
-    color: '#999',
+    color: gray.secondary,
     fontSize: 10,
   },
 });

@@ -1,13 +1,13 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
 import EventsList from '../../components/EventsList';
-import useGetEvents from '../../hooks/useGetEvents';
 import MainLayout from '../../layouts/MainLayout';
 import Loading from '../../components/Loading';
+import {MainContext} from '../../context/globalContext';
 
 const Home: FC<{showFavoritesOnly?: boolean}> = ({
   showFavoritesOnly = false,
 }) => {
-  const {events, loading} = useGetEvents();
+  const {events, loading} = useContext(MainContext);
 
   return (
     <MainLayout>

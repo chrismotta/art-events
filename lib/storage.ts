@@ -11,7 +11,6 @@ export const resetStorage = async () => {
 
 export const getFromStorage = async () => {
   try {
-    // await resetStorage();
     const value = await AsyncStorage.getItem(FAV_KEY);
     const eventsList = (value ? JSON.parse(value) : []) as number[];
     return eventsList;
@@ -20,35 +19,9 @@ export const getFromStorage = async () => {
   }
 };
 
-export const addToStorage = async (eventId: number) => {
-  try {
-    const favorites = await getFromStorage();
-    if (favorites) {
-      favorites.push(eventId);
-      console.log('🔎  >> addToStorage  >> favorites:', favorites.length);
-      await AsyncStorage.setItem(FAV_KEY, JSON.stringify(favorites));
-    }
-  } catch (e) {
-    throw new Error();
-  }
-};
-
 export const updateStorage = async (eventIdsList: number[]) => {
   try {
     await AsyncStorage.setItem(FAV_KEY, JSON.stringify(eventIdsList));
-  } catch (e) {
-    throw new Error();
-  }
-};
-
-export const removeFromStorage = async (eventId: number) => {
-  try {
-    const favorites = await getFromStorage();
-    if (favorites) {
-      const filtered = favorites.filter(id => id !== eventId);
-      console.log('🔎  >> removeFromStorage  >> filtered:', filtered.length);
-      await AsyncStorage.setItem(FAV_KEY, JSON.stringify(filtered));
-    }
   } catch (e) {
     throw new Error();
   }

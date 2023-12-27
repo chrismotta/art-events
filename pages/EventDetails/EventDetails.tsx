@@ -1,21 +1,22 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {FC} from 'react';
+import {DateTime} from 'luxon';
+import React, {FC, useContext} from 'react';
 import {Image, Text, View, useWindowDimensions} from 'react-native';
 import RenderHTML from 'react-native-render-html';
-import HeartRegular from '../../components/icons/HeartRegular';
-import HeartSolid from '../../components/icons/HeartSolid';
+import FavButton from '../../components/EventCard/FavButton';
+import Tag from '../../components/Tag';
 import DetailsLayout from '../../layouts/DetailsLayout';
 import {EVENT_ERROR} from '../../lib/wording';
 import {RootStackParamList} from '../../navigation/MainStack';
 import {captionStyles, styles, tagsStyles} from './styles';
-import {DateTime} from 'luxon';
-import Tag from '../../components/Tag';
+import {MainContext} from '../../context/globalContext';
 
 const EventDetails: FC<
   NativeStackScreenProps<RootStackParamList, 'EventDetails'>
 > = props => {
   const {event} = props.route.params;
   const {width} = useWindowDimensions();
+  const {getIsFavorite, toggleFavorite} = useContext(MainContext);
 
   if (!event) {
     return (
@@ -24,6 +25,7 @@ const EventDetails: FC<
       </View>
     );
   }
+  const isFav = getIsFavorite(event.id);
   const startDate = DateTime.fromISO(event.start_date);
 
   const day = startDate.toFormat('cccc');
@@ -36,7 +38,7 @@ const EventDetails: FC<
 
       <View style={styles.info}>
         <View style={styles.actions}>
-          <View>{true ? <HeartRegular /> : <HeartSolid />}</View>
+          <FavButton isFav={isFav} onPress={() => toggleFavorite(event.id)} />
           <View style={styles.caption}>
             <RenderHTML
               source={{html: event?.hero_caption ?? ''}}

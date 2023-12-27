@@ -1,31 +1,27 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
 import {FlatList} from 'react-native';
 import EventCard from '../EventCard/';
-import useFavorites from '../../hooks/useFavorites';
+import {MainContext} from '../../context/globalContext';
+import {styles} from './styles';
 
 const EventsList: FC<{
   eventsList: GalleryEvent[];
   showFavoritesOnly?: boolean;
 }> = ({eventsList, showFavoritesOnly = false}) => {
-  const {getIsFavorite, toggleFavorite, getFavoritesList} = useFavorites();
+  const {getIsFavorite, favoritesList, toggleFavorite} =
+    useContext(MainContext);
 
-  const currentEventsList = showFavoritesOnly
-    ? getFavoritesList(eventsList)
-    : eventsList;
-
-  const handleFavPress = (eventId: number) => {
-    toggleFavorite(eventId);
-  };
+  const currentEventsList = showFavoritesOnly ? favoritesList : eventsList;
 
   return (
     <FlatList
       data={currentEventsList}
-      style={{flex: 1}}
+      style={styles.listContainer}
       renderItem={({item}) => (
         <EventCard
           event={item}
           isFav={getIsFavorite(item.id)}
-          onFavPress={handleFavPress}
+          onFavPress={toggleFavorite}
         />
       )}
     />

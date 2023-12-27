@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'times new roman',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     color: gray.primary,
     borderColor: gray.primary,

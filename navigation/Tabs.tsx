@@ -21,7 +21,6 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: Home,
-          unmountOnBlur: true,
         }}
       />
       <Tab.Screen
@@ -30,7 +29,6 @@ const Tabs = () => {
         options={{
           headerShown: false,
           tabBarIcon: HeartSolid,
-          unmountOnBlur: true,
         }}
       />
     </Tab.Navigator>
